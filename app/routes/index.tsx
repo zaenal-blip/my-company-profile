@@ -94,7 +94,7 @@ const Index = () => {
         description="As a leading automotive manufacturer, we combine innovation, quality, and sustainability to create vehicles that move the nation forward while protecting our planet."
         primaryAction={{ label: 'Explore Our Story', href: '/about' }}
         secondaryAction={{ label: 'View Careers', href: '/careers' }}
-        backgroundImage="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="/pabrik1.jpeg"
       />
 
       {/* Stats Section */}
@@ -264,7 +264,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-2xl aspect-3/4"
             >
               <img
-                src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=600&q=80"
+                src="/export.avif"
                 alt="Global Export"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -350,14 +350,14 @@ const Index = () => {
             >
               <div className="aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=80"
+                  src="/env.jpg"
                   alt="Solar panels"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-square rounded-2xl overflow-hidden mt-8">
                 <img
-                  src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=400&q=80"
+                  src="/xev.png"
                   alt="Green factory"
                   className="w-full h-full object-cover"
                 />

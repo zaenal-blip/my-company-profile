@@ -188,7 +188,7 @@ const Index = () => {
             >
               <div className="aspect-4/3 rounded-2xl overflow-hidden">
                 <img
-                  src="./public/engine main line.jpg"
+                  src="/engine.jpg"
                   alt="TMMIN Manufacturing"
                   className="w-full h-full object-cover"
                 />
@@ -220,7 +220,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-2xl aspect-3/4"
             >
               <img
-                src="./public/veloz.avif"
+                src="/veloz.avif"
                 alt="Vehicle Production"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -242,7 +242,7 @@ const Index = () => {
               className="group relative overflow-hidden rounded-2xl aspect-3/4"
             >
               <img
-                src="./public/hev.jpg"
+                src="/hev.jpg"
                 alt="Engine Manufacturing"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

@@ -19,25 +19,25 @@ const vehicleModels = [
     name: 'Innova',
     type: 'MPV',
     description: 'Premium multi-purpose vehicle designed for Indonesian families.',
-    image: './innova.avif',
+    image: '/innova.avif',
   },
   {
     name: 'Fortuner',
     type: 'SUV',
     description: 'Powerful SUV built for adventure and comfort.',
-    image: './fortuner.webp',
+    image: '/fortuner.webp',
   },
   {
     name: 'Avanza',
     type: 'MPV',
     description: 'Affordable and reliable family transportation.',
-    image: './avanza.avif',
+    image: '/avanza.avif',
   },
   {
     name: 'Yaris Cross',
     type: 'Hatchback',
     description: 'Compact and stylish urban mobility solution.',
-    image: './yaris.avif',
+    image: '/yaris.avif',
   },
 ];
 

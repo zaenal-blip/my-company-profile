@@ -89,7 +89,7 @@ const Index = () => {
       {/* Hero Section */}
       <Hero
         size="large"
-        subtitle="PT Toyota Motor Manufacturing Indonesia"
+        subtitle="PT Toyota Motor Manufacturing Indonesiaaaaa"
         title="Driving Indonesia's Automotive Future"
         description="As a leading automotive manufacturer, we combine innovation, quality, and sustainability to create vehicles that move the nation forward while protecting our planet."
         primaryAction={{ label: 'Explore Our Story', href: '/about' }}

@@ -8,10 +8,8 @@ export default [
   route("contact", "routes/contact.tsx"),
   route("news", "routes/news.tsx"),
   route("sustainability", "routes/sustainability.tsx"),
-
-  // ✅ DASHBOARD
+  route("login", "routes/login.tsx"),
+  route("register", "routes/register.tsx"),
   route("dashboard", "routes/dashboard.tsx"),
-
-  // ✅ NOT FOUND (catch-all)
   route("*", "routes/$.tsx"),
 ] satisfies RouteConfig;

@@ -1,15 +1,14 @@
 import { redirect } from "react-router";
-import { isAuthenticated } from "@/utils/auth";
+import { useAuth } from "@/store/useAuth";
 
-export function loader() {
-  if (!isAuthenticated()) {
-    throw redirect("/");
+export async function loader() {
+  const user = useAuth.getState().user;
+  if (!user) {
+    throw redirect("/login");
   }
   return null;
 }
 
 export default function Dashboard() {
   return <div>Dashboard kosong (isi sendiri)</div>;
-};
-
-
+}

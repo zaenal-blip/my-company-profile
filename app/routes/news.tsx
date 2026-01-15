@@ -16,7 +16,7 @@ const newsArticles = [
     date: 'January 3, 2026',
     category: 'Sustainability',
     slug: 'carbon-neutral-milestone',
-    image: 'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=600&q=80',
+    image: '/xev.png',
   },
   {
     title: 'New Hybrid Vehicle Production Line Launched',
@@ -24,7 +24,7 @@ const newsArticles = [
     date: 'December 28, 2025',
     category: 'Production',
     slug: 'hybrid-production-line',
-    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=600&q=80',
+    image: '/velozhev.jpg',
   },
   {
     title: 'TMMIN Receives Manufacturing Excellence Award',
@@ -32,7 +32,7 @@ const newsArticles = [
     date: 'December 15, 2025',
     category: 'Awards',
     slug: 'excellence-award',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80',
+    image: '/award.jpg',
   },
   {
     title: 'Annual Community Health Fair Serves 5,000 Residents',

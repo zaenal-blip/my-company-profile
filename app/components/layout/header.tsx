@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, User } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
-import AuthDialog from "@/components/auth/authdialog"; // 🔐 AUTH
+import { Link, useLocation, useNavigate } from "react-router";
+import { useAuth } from "~/store/useAuth"; // ✅ zustand auth
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -18,13 +18,14 @@ const navigation = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false); // 🔐 AUTH
+
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const { user, logout } = useAuth(); // ✅ AUTH STATE
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -51,7 +52,7 @@ const Header = () => {
               </span>
             </div>
             <div className="hidden sm:block">
-              <p className="font-bold text-lg text-foreground">TMMIN</p>
+              <p className="font-bold text-lg">TMMIN</p>
               <p className="text-xs text-muted-foreground">
                 Toyota Motor Manufacturing Indonesia
               </p>
@@ -77,14 +78,29 @@ const Header = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
-            {/* 🔐 Login Button */}
-            <Button
-              size="icon"
-              onClick={() => setAuthOpen(true)}
-              className="hidden lg:flex bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              <User className="h-5 w-5" />
-            </Button>
+            {/* 🔐 AUTH LOGIC */}
+            {user ? (
+              <>
+                <span className="hidden lg:block text-muted-foreground font-medium">
+                  {user.name}
+                </span>
+                <Button 
+                  variant="ghost"
+                  size="sm"
+                  onClick={logout}
+                >
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <Button
+                size="icon"
+                className="hidden lg:flex bg-secondary text-secondary-foreground"
+                onClick={() => navigate("/login")}
+              >
+                <User className="h-5 w-5" />
+              </Button>
+            )}
 
             {/* Mobile Menu Button */}
             <Button
@@ -103,9 +119,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* 🔐 Auth Dialog */}
-      <AuthDialog open={authOpen} onOpenChange={setAuthOpen} />
-
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -120,27 +133,25 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === item.href
-                      ? "text-primary bg-secondary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
+                  className="px-4 py-3 rounded-lg text-sm"
                 >
                   {item.name}
                 </Link>
               ))}
 
-              {/* 🔐 Login (Mobile) */}
-              <Button
-                variant="outline"
-                className="mt-2"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setAuthOpen(true);
-                }}
-              >
-                Login / Register
-              </Button>
+              {/* 🔐 AUTH MOBILE */}
+              {user ? (
+                <Button variant="outline" onClick={logout}>
+                  Logout
+                </Button>
+              ) : (
+                <Button
+                  variant="outline"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </Button>
+              )}
             </nav>
           </motion.div>
         )}

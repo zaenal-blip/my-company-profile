@@ -13,7 +13,7 @@ import "./app.css";
 
 export default function Root() {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Meta />
         <Links />

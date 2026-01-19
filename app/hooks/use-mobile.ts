@@ -11,9 +11,12 @@ export function useIsMobile() {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
     mql.addEventListener("change", onChange)
+    // Set initial state synchronously to prevent hydration mismatch
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     return () => mql.removeEventListener("change", onChange)
   }, [])
 
-  return !!isMobile
+  // Return false during SSR to match server rendering
+  // Only return true after hydration when useEffect has run
+  return isMobile ?? false
 }

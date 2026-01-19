@@ -33,7 +33,11 @@ const Hero = ({
   size = 'default',
   children,
 }: HeroProps) => {
-  const heightClass = size === 'large' ? 'min-h-screen' : 'min-h-[70vh]';
+  // Use svh (small viewport height) on mobile, regular viewport on desktop
+  // This prevents layout shift when mobile address bar appears/disappears
+  const heightClass = size === 'large' 
+    ? 'min-h-screen lg:min-h-screen md:min-h-screen' 
+    : 'min-h-[70vh]';
 
   return (
     <section
@@ -65,12 +69,13 @@ const Hero = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-32">
+      <div className="relative z-10 container mx-auto px-4 py-16 sm:py-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="max-w-4xl mx-auto text-center"
+          layout="position"
         >
           {subtitle && (
             <motion.p
@@ -80,6 +85,7 @@ const Hero = ({
               className={`text-sm font-bold uppercase tracking-wider mb-4 ${
                 backgroundImage ? 'text-primary-foreground/80' : 'text-primary'
               }`}
+              layout="position"
             >
               {subtitle}
             </motion.p>
@@ -92,6 +98,7 @@ const Hero = ({
             className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${
               backgroundImage ? 'text-background' : 'text-foreground'
             }`}
+            layout="position"
           >
             {title}
           </motion.h1>
@@ -104,6 +111,7 @@ const Hero = ({
               className={`text-lg md:text-xl max-w-2xl mx-auto mb-8 ${
                 backgroundImage ? 'text-background/90' : 'text-muted-foreground'
               }`}
+              layout="position"
             >
               {description}
             </motion.p>
@@ -115,6 +123,7 @@ const Hero = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
+              layout="position"
             >
               {primaryAction && (
                 <Button asChild size="lg" className="group">
@@ -147,6 +156,7 @@ const Hero = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          layout="position"
         >
           <div className="w-6 h-10 border-2 border-background/50 rounded-full flex justify-center p-2">
             <motion.div

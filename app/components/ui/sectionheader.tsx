@@ -31,13 +31,13 @@ const SectionHeader = ({
       className={`max-w-3xl mb-12 ${alignClass}`}
     >
       {subtitle && (
-        <p className="text-sm font-medium uppercase tracking-wider text-primary mb-2">
+        <p className="text-xs sm:text-sm font-medium uppercase tracking-wider text-primary mb-2">
           {subtitle}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{title}</h2>
       {description && (
-        <p className="text-lg text-muted-foreground">{description}</p>
+        <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{description}</p>
       )}
       {children}
     </motion.div>

@@ -38,12 +38,12 @@ const StatItem = ({ value, suffix = '', prefix = '', label, delay = 0 }: StatIte
       transition={{ duration: 0.6, delay }}
       className="text-center"
     >
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-2">
+      <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-2">
         {prefix}
         {displayValue.toLocaleString()}
         {suffix}
       </div>
-      <p className="text-muted-foreground">{label}</p>
+      <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{label}</p>
     </motion.div>
   );
 };
@@ -60,9 +60,9 @@ interface StatsCounterProps {
 
 const StatsCounter = ({ stats, className = '' }: StatsCounterProps) => {
   return (
-    <section className={`py-20 ${className}`}>
+    <section className={`py-16 sm:py-20 md:py-28 ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <StatItem
               key={stat.label}

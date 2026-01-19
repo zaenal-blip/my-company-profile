@@ -82,7 +82,7 @@ const Hero = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className={`text-sm font-bold uppercase tracking-wider mb-4 ${
+              className={`text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 ${
                 backgroundImage ? 'text-primary-foreground/80' : 'text-primary'
               }`}
               layout="position"
@@ -95,7 +95,7 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${
               backgroundImage ? 'text-background' : 'text-foreground'
             }`}
             layout="position"
@@ -108,7 +108,7 @@ const Hero = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-lg md:text-xl max-w-2xl mx-auto mb-8 ${
+              className={`text-sm sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 ${
                 backgroundImage ? 'text-background/90' : 'text-muted-foreground'
               }`}
               layout="position"

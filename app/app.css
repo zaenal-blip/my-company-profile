@@ -13,6 +13,16 @@ body {
   @apply bg-white dark:bg-gray-950;
   /* Prevent layout shift during hydration by disabling scrollbar adjustment */
   scrollbar-gutter: stable;
+  /* Ensure proper mobile rendering - base font size for mobile */
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Prevent any unwanted scaling on mobile */
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
   
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
@@ -189,6 +199,39 @@ body {
 
   .gradient-overlay {
     background: linear-gradient(180deg, transparent 0%, hsl(var(--background) / 0.8) 100%);
+  }
+
+  /* Mobile-specific sizing overrides to prevent text collapse */
+  @media (max-width: 640px) {
+    /* Ensure minimum font sizes on mobile */
+    body {
+      @apply text-base;
+    }
+    
+    h1 {
+      @apply text-2xl;
+    }
+    
+    h2 {
+      @apply text-xl;
+    }
+    
+    h3 {
+      @apply text-lg;
+    }
+    
+    h4 {
+      @apply text-base;
+    }
+    
+    p {
+      @apply text-sm leading-relaxed;
+    }
+    
+    /* Prevent transform scale on mobile */
+    * {
+      transform: translateZ(0);
+    }
   }
 }
 

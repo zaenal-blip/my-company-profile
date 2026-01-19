@@ -46,21 +46,21 @@ const NewsCard = ({ title, excerpt, date, image, category, slug, index = 0 }: Ne
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-          <Calendar className="h-4 w-4" />
+      <div className="p-4 sm:p-6">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-3">
+          <Calendar className="h-3 sm:h-4 w-3 sm:w-4" />
           <time>{date}</time>
         </div>
-        <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+        <h3 className="text-base sm:text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
           {title}
         </h3>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{excerpt}</p>
+        <p className="text-muted-foreground text-xs sm:text-sm mb-4 line-clamp-2">{excerpt}</p>
         <Link
           to={`/news/${slug}`}
-          className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          className="inline-flex items-center text-xs sm:text-sm font-medium text-primary hover:text-primary/80 transition-colors"
         >
           Read More
-          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="ml-1 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </motion.article>

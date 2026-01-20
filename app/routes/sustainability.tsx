@@ -139,9 +139,9 @@ const Sustainability = () => {
             >
               <div className="aspect-square rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=80"
+                  src="/xev.png"
                   alt="Green manufacturing"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[20%_10%]"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">

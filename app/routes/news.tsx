@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 
 const newsCategories = ['All', 'Production', 'Sustainability', 'Awards', 'Events', 'Community'];
 
-const newsArticles = [
+export const newsArticles = [
   {
     title: 'TMMIN Achieves Carbon Neutral Milestone in Manufacturing',
     excerpt: 'Our Karawang plant has successfully achieved carbon neutral status, marking a significant step in our sustainability journey toward a greener future.',

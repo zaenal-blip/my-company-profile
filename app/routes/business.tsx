@@ -67,7 +67,7 @@ const Business = () => {
         subtitle="Business & Products"
         title="Manufacturing Excellence at Scale"
         description="From vehicle assembly to component production, we deliver quality and innovation across our entire manufacturing operation."
-        backgroundImage="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="/pabrik1.jpeg"
       />
 
       {/* Stats */}

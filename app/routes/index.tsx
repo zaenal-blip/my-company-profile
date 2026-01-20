@@ -21,6 +21,7 @@ import NewsCard from '@/components/ui/newscard';
 import SectionHeader from '@/components/ui/sectionheader';
 import { Button } from '@/components/ui/button';
 
+
 const coreValues = [
   {
     icon: Award,
@@ -63,6 +64,7 @@ const latestNews = [
     date: 'January 3, 2026',
     category: 'Sustainability',
     slug: 'carbon-neutral-milestone',
+    image: '/xev.png',
   },
   {
     title: 'New Hybrid Vehicle Production Line Launched',
@@ -70,6 +72,7 @@ const latestNews = [
     date: 'December 28, 2025',
     category: 'Production',
     slug: 'hybrid-production-line',
+    image: '/velozhev.jpg',
   },
   {
     title: 'TMMIN Receives Manufacturing Excellence Award',
@@ -77,6 +80,7 @@ const latestNews = [
     date: 'December 15, 2025',
     category: 'Awards',
     slug: 'excellence-award',
+    image: '/award.jpg',
   },
 ];
 
@@ -222,7 +226,7 @@ const Index = () => {
               <img
                 src="/veloz.avif"
                 alt="Vehicle Production"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-[50%_10%] group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-foreground/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -352,14 +356,14 @@ const Index = () => {
                 <img
                   src="/env.jpg"
                   alt="Solar panels"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[50%_10%]"
                 />
               </div>
               <div className="aspect-square rounded-2xl overflow-hidden mt-8">
                 <img
                   src="/xev.png"
                   alt="Green factory"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[20%_10%]"
                 />
               </div>
             </motion.div>

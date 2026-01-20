@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link, useNavigate, redirect } from "react-router";
+import { useEffect } from "react";
 import * as z from "zod";
 
 import { Button } from "~/components/ui/button";
@@ -10,7 +11,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-//   CardTitle,
 } from "~/components/ui/card";
 import { Field, FieldError, FieldLabel } from "~/components/ui/field";
 import { Input } from "~/components/ui/input";
@@ -19,23 +19,19 @@ import { axiosInstance } from "~/lib/axios";
 import { useAuth } from "~/store/useAuth";
 
 /* ===============================
-   1️⃣ Loader (React Router Framework)
+   1️⃣ Zod Schema
 ================================ */
-export async function loader() {
+const formSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+export const clientLoader = () => {
   const user = useAuth.getState().user;
   if (user) {
     throw redirect("/");
   }
   return null;
 }
-
-/* ===============================
-   2️⃣ Zod Schema
-================================ */
-const formSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
 
 /* ===============================
    3️⃣ Component
@@ -52,6 +48,14 @@ export default function Login() {
     },
   });
 
+  // PAKSA RESET SAAT HALAMAN DIBUKA / REFRESH
+  useEffect(() => {
+    form.reset({
+      email: "",
+      password: "",
+    });
+  }, [form]);
+
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
       const response = await axiosInstance.post("/api/users/login", {
@@ -66,12 +70,19 @@ export default function Login() {
         userToken: response.data["user-token"],
       });
 
-      console.log("ini response dari backend",response);
-      navigate("/", { replace: true });
+      // RESET FORM SETELAH LOGIN
+      form.reset();
 
+      navigate("/", { replace: true });
     } catch (error) {
       console.error(error);
       alert("Email atau password salah");
+
+      // RESET JUGA KALAU GAGAL
+      form.reset({
+        email: "",
+        password: "",
+      });
     }
   }
 
@@ -82,14 +93,17 @@ export default function Login() {
           <Link to="/" className="text-2xl font-bold mb-2">
             PT. Toyota Motor Manufacturing Indonesia
           </Link>
-          {/* <CardTitle>Welcome back</CardTitle> */}
           <CardDescription>
             Enter your credentials to access your account
           </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-4"
+            autoComplete="off"
+          >
             {/* Email */}
             <Controller
               name="email"
@@ -97,7 +111,12 @@ export default function Login() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel>Email</FieldLabel>
-                  <Input {...field} placeholder="you@example.com" />
+                  <Input
+                    {...field}
+                    type="email"
+                    placeholder="you@mail.com"
+                    autoComplete="off"
+                  />
                   {fieldState.error && (
                     <FieldError errors={[fieldState.error]} />
                   )}
@@ -116,6 +135,7 @@ export default function Login() {
                     {...field}
                     type="password"
                     placeholder="••••••••"
+                    autoComplete="new-password"
                   />
                   {fieldState.error && (
                     <FieldError errors={[fieldState.error]} />

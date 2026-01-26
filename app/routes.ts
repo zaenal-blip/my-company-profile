@@ -7,6 +7,7 @@ export default [
   route("careers", "routes/careers.tsx"),
   route("contact", "routes/contact.tsx"),
   route("news", "routes/news.tsx"),
+  route("news/:slug", "routes/news-detail.tsx"),
   route("sustainability", "routes/sustainability.tsx"),
   route("login", "routes/login.tsx"),
   route("register", "routes/register.tsx"),
